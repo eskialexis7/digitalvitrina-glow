@@ -1,26 +1,39 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Preloader } from "@/components/Preloader";
+import { Hero } from "@/components/Hero";
+import { VideoShowcase } from "@/components/VideoShowcase";
+import { Pricing } from "@/components/Pricing";
+import { Process } from "@/components/Process";
+import { ContactForm } from "@/components/ContactForm";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "DigitalVitrina — Premium Web Design Agency" },
+      { name: "description", content: "Επαγγελματικά websites σε 3 ημέρες. Εφάπαξ 340€. Αυτόματα ραντεβού, SEO ready, mobile-first." },
+      { property: "og:title", content: "DigitalVitrina — Η Ψηφιακή Παρουσία που Αξίζει η Επιχείρησή σας" },
+      { property: "og:description", content: "Παράδοση σε 3 εργάσιμες ημέρες. Μηδενικές μηνιαίες συνδρομές." },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="grain min-h-screen bg-background text-foreground">
+      <Preloader />
+      <Hero />
+      <VideoShowcase />
+      <Pricing />
+      <Process />
+      <ContactForm />
+      <Footer />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
