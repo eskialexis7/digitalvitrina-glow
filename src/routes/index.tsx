@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Preloader } from "@/components/Preloader";
 import { Hero } from "@/components/Hero";
 import { VideoShowcase } from "@/components/VideoShowcase";
 import { Pricing } from "@/components/Pricing";
@@ -27,7 +26,6 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="grain min-h-screen bg-background text-foreground">
-      <Preloader />
       <Hero />
       <VideoShowcase />
       <Pricing />
